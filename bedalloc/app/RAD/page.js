@@ -1,19 +1,17 @@
 "use client"
-import React, { useReducer, useState } from 'react';
-import {SlidingWindow} from './components/SlidingWindow';
-import { useSelector } from 'react-redux';
-import { useRouter } from 'next/navigation';
-import Menu from './components/Menu'
-import RoomBar from './components/RoomBar';
-import RoomList from './components/RoomList';
-import { specialTreatmentRooms } from './api/actions/specialbeds';
-import Dashboard from './components/Dashboard';
+import React, { useState } from 'react';
+import RoomList from '../components/RoomList';
+import { SlidingWindow } from '../components/SlidingWindow';
 
- function page() {
+import { useSelector } from 'react-redux';
+// import { rooms } from '../api/actions/beds';
+import { specialTreatmentRooms } from '../api/actions/specialbeds';
+import RoomBar from '../components/RoomBar';
+
+export default function page() {
   // const [selectedBed, setSelectedBed] = useState(null);
   const isWindowOpen = useSelector(state => state.value); // Renamed to avoid conflicts
   const bedNumber = useSelector(state => state.bedNumber); // Ensure this is correctly set in your Redux state
-  const router=useRouter()
   // const [isOpen,setIsOpen]=useState()
   // const isOpen=useSelector(state=>state.isOpen)
   const isOpen = useSelector((state) => state.window.isOpen);
@@ -24,7 +22,6 @@ import Dashboard from './components/Dashboard';
     console.log("this is home page",isOpen)
    
   }
- 
 
   // const handleBedClick = (bedNumber) => {
   //   setSelectedBed(bedNumber);
@@ -38,16 +35,18 @@ import Dashboard from './components/Dashboard';
   return (
     <div className="h-screen w-full">
       <h1 className="text-3xl font-bold mb-6 flex justify-center">Allocate Beds</h1>
-      <div className='flex justify-center '>
-      <Dashboard/>
+      <div className='flex justify-center'>
+      <RoomBar/>
+      <RoomList rooms={specialTreatmentRooms} name={"Radiology (RAD)"} />
       
       
+        
+
       </div>
       
-
+      <SlidingWindow bedNumber={bedNumber} isOpen={isOpen}/>
       
       
     </div>
   );
 }
-export default page

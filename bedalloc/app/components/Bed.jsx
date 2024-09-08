@@ -6,7 +6,7 @@ const Bed = ({ bed }) => {
   // const detailsRef = useRef(null);
 
   const bedStatus = bed.isAvailable ? 'bg-green-500' : 'bg-red-500';
-
+ 
   // const handleBedClick = () => {
   //   setShowDetails(true);
   // };
@@ -27,7 +27,6 @@ const Bed = ({ bed }) => {
   return (
     <div
       className={`bed p-2 ${bedStatus} text-white rounded-lg hover:scale-110 transition-transform duration-200 hover:cursor-pointer`}
-      onClick={()=>onclick(bed.id)}
     >
       <img src="bed.png" alt="bed" />
       Bed {bed.id}
