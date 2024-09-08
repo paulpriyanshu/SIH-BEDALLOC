@@ -8,6 +8,7 @@ import RoomBar from './components/RoomBar';
 import RoomList from './components/RoomList';
 import { specialTreatmentRooms } from './api/actions/specialbeds';
 import Dashboard from './components/Dashboard';
+import NavBar from './components/NavBar';
 
  function page() {
   // const [selectedBed, setSelectedBed] = useState(null);
@@ -37,7 +38,7 @@ import Dashboard from './components/Dashboard';
 
   return (
     <div className="h-screen w-full">
-      <h1 className="text-3xl font-bold mb-6 flex justify-center">Allocate Beds</h1>
+      <NavBar/>
       <div className='flex justify-center '>
       <Dashboard/>
       

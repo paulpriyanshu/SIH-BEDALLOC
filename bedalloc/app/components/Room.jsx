@@ -22,13 +22,13 @@ const Room = ({ room }) => {
 
     return (
         <div 
-            className="room p-3  m-1 h-full w-full bg-white border rounded-lg shadow-lg hover:scale-105 transition-transform duration-200 hover:cursor-pointer"
+            className="room p-3   m-1 h-full w-full bg-white border rounded-lg shadow-lg hover:scale-105 transition-transform duration-200 hover:cursor-pointer"
             onClick={handleRoomClick}
         >
             <h2 className="room-title text-xl font-semibold mb-4">
                 {room.name}
             </h2>
-            <div className="bed-list grid grid-cols-5 gap-2 overflow-auto ">
+            <div className="bed-list grid grid-cols-4 gap-2 overflow-auto ">
                 {room.beds.map((bed) => (
                     <div key={bed.id} onClick={() => handleBedClick(bed.id)}>
                         <Bed bed={bed} />
